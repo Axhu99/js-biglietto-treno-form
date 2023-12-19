@@ -49,7 +49,7 @@ buttonGo.addEventListener('click', function () {
     if (isNaN(userKms)){
         alert('Devi il numero di KM!');
         return;
-    }else if (userAge === 'no-select' || userAge === ''){
+    }else if (userAge === 'no-select'){
         alert('Devi selezionare un eta\'!')
         return;
     }
@@ -84,6 +84,6 @@ buttonGo.addEventListener('click', function () {
 buttonReturn.addEventListener('click', function (){
     inputName.value = '';
     inputKms.value = '';
-    inputAge.value = '';
+    inputAge.value = 'no-select';
     botMenu.classList.add('d-none');
 })
