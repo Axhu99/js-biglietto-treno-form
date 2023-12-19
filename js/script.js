@@ -14,7 +14,7 @@
 const button = document.getElementById('button');
 const inputName = document.getElementById('user-name');
 const inputKms = document.querySelector('.kms');
-const inputAge = document.getElementById('selectage');
+const inputAge = document.getElementById('select-age');
 const priceForKms = 0.21;
 let userName;
 let userKms;
