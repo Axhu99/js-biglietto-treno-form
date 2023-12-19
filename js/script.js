@@ -11,11 +11,15 @@
     - fare un tasto annulla 
 */
 
+// Calcola il prezzo del tuo biglietto
 const buttonGo = document.getElementById('button-go');
 const buttonReturn = document.getElementById('button-return');
 const inputName = document.getElementById('user-name');
 const inputKms = document.querySelector('.kms');
 const inputAge = document.getElementById('select-age');
+
+// Il tuo biglietto
+const botMenu = document.querySelector('.bot');
 const ticketUserame = document.querySelector('.ticket-username');
 const ticketDiscount = document.querySelector('.ticket-discount');
 const ticketCart = document.querySelector('.ticket-cart');
@@ -26,9 +30,12 @@ let userName;
 let userKms;
 let randomCart;
 let randomNumber;
+
+//Utils
 const max = 999999;
 const min = 100000;
 let discount = 'Biglietto Standard'
+
 
 buttonGo.addEventListener('click', function () {
     
@@ -36,6 +43,19 @@ buttonGo.addEventListener('click', function () {
     userName = inputName.value;
     userKms = parseInt(inputKms.value);
     const userAge = inputAge.value
+
+    //! Validazione
+
+    if (isNaN(userKms)){
+        alert('Devi il numero di KM!');
+        return;
+    }else if (userAge === 'no-select' || userAge === ''){
+        alert('Devi selezionare un eta\'!')
+        return;
+    }
+
+    // mostriamo il biglietto
+    botMenu.classList.remove('d-none');
 
     // numero carrozza
     randomCart = Math.floor(Math.random() * 15) + 1;
@@ -65,4 +85,5 @@ buttonReturn.addEventListener('click', function (){
     inputName.value = '';
     inputKms.value = '';
     inputAge.value = '';
+    botMenu.classList.add('d-none');
 })
